@@ -1,21 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CuentaRegresiva from '../components/CuentaRegresiva.astro';
 ---
 <Layout>
-	<main class="max-w-6xl mx-auto px-4 lg:px-8 space-y-12 bg-gradient-to-l from-[#F7E7CE] via-[#fff8E1] to-[#F7E7CE] min-h-screen">
+	<main class="max-w-6xl mx-auto space-y-12 bg-gradient-to-l from-[#F7E7CE] via-[#fff8E1] to-[#F7E7CE] min-h-screen">
 		<!-- Sección principal -->
-		<section class="flex flex-col items-center space-y-6">
-			<div>
-				<img src="/flordorada.png" alt="flor dorada" class="mx-auto max-h-80 rotate-180 mb-5" />
-			</div>
-			
-			<div class="flex justify-center">
-				<img src="/quinceanera.jpg" alt="Quinceañera" class="rounded-3xl shadow-lg max-h-80 w-auto" />
+		<section class="relative flex flex-col items-center justify-center py-12">
+			<!-- Fondo -->
+			<div class="absolute inset-0">
+				<img src="/fondoV3.jpg" 
+					class="w-full h-[80vh] md:h-screen object-cover object-top" 
+					alt="Fondo de rosas" />
 			</div>
 
-			<div class="text-center">
-				<h1 class="text-4xl md:text-6xl font-bold text-[#E2C290]">Guadalupe</h1>
-				<p class="mt-2 text-lg text-gray-700">22 de Noviembre</p>
+			<!-- Contenido encima -->
+			<div class="relative z-10 flex flex-col items-center space-y-6 mt-10">
+				<img src="/Joven_1.jpg" alt="QuinceañeraV2" class="rounded-2xl shadow-lg max-h-72 w-auto mt-10 md:mt-0" />
+				<div class="text-center">
+					<h1 class="text-4xl md:text-6xl font-bold text-pink-700">Guadalupe</h1>
+					<p class="mt-2 text-lg text-gray-700">22 de Noviembre</p>
+
+					<CuentaRegresiva fechaEvento="2025-11-22T01:00:00" />
+				</div>
 			</div>
 		</section>
 

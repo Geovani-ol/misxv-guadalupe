@@ -1,0 +1,52 @@
+---
+const { fechaEvento } = Astro.props;
+---
+
+<div id="countdown" data-fecha={fechaEvento} class="mt-6 flex gap-4 md:gap-10 justify-center text-center"></div>
+
+<script type="module">
+  const countdown = document.getElementById("countdown");
+  if (!countdown) throw new Error("No se encontró el elemento countdown");
+
+  const targetDate = new Date(countdown.dataset.fecha).getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      countdown.innerHTML = "¡El gran día ha llegado!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `
+      <div>
+        <div class="text-5xl italic font-serif">${days}</div>
+        <div class="italic text-sm">Días</div>
+      </div>
+      <span class="text-5xl italic font-serif">:</span>
+      <div>
+        <div class="text-5xl italic font-serif">${hours}</div>
+        <div class="italic text-sm">Horas</div>
+      </div>
+      <span class="text-5xl italic font-serif">:</span>
+      <div>
+        <div class="text-5xl italic font-serif">${minutes}</div>
+        <div class="italic text-sm">Minutos</div>
+      </div>
+      <span class="text-5xl italic font-serif">:</span>
+      <div>
+        <div class="text-5xl italic font-serif">${seconds}</div>
+        <div class="italic text-sm">Segundos</div>
+      </div>
+    `;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
