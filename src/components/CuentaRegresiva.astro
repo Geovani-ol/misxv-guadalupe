@@ -2,7 +2,7 @@
 const { fechaEvento } = Astro.props;
 ---
 
-<div id="countdown" data-fecha={fechaEvento} class="mt-6 flex gap-4 md:gap-10 justify-center text-center"></div>
+<div id="countdown" data-fecha={fechaEvento} class="mt-6 flex gap-2 md:gap-10 justify-center text-center"></div>
 
 <script type="module">
   const countdown = document.getElementById("countdown");
@@ -27,22 +27,22 @@ const { fechaEvento } = Astro.props;
     countdown.innerHTML = `
       <div>
         <div class="text-5xl italic font-serif">${days}</div>
-        <div class="italic text-sm">Días</div>
+        <div class="font-serif text-lg">Días</div>
       </div>
       <span class="text-5xl italic font-serif">:</span>
       <div>
         <div class="text-5xl italic font-serif">${hours}</div>
-        <div class="italic text-sm">Horas</div>
+        <div class="font-serif text-lg">Horas</div>
       </div>
       <span class="text-5xl italic font-serif">:</span>
       <div>
         <div class="text-5xl italic font-serif">${minutes}</div>
-        <div class="italic text-sm">Minutos</div>
+        <div class="font-serif text-lg">Minutos</div>
       </div>
       <span class="text-5xl italic font-serif">:</span>
       <div>
-        <div class="text-5xl italic font-serif">${seconds}</div>
-        <div class="italic text-sm">Segundos</div>
+        <div class="text-5xl italic font-serif text-[#E2C290] text-shadow-lg text-shadow-black md:text-shadow-none md:text-black">${seconds}</div>
+        <div class="font-serif text-lg text-[#E2C290] text-shadow-lg text-shadow-black md:text-shadow-none md:text-black">Segundos</div>
       </div>
     `;
   }
