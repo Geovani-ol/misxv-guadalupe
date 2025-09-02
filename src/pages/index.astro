@@ -1,69 +1,198 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CuentaRegresiva from '../components/CuentaRegresiva.astro';
+// src/pages/index.astro (o donde lo tengas)
+import Layout from "../layouts/Layout.astro";
+import CuentaRegresiva from "../components/CuentaRegresiva.astro";
+
+const lugares = [
+  {
+    title: "Ceremonia",
+    lugar: "Parroquia de San Juan Bautista",
+    fecha: "22 de Noviembre de 2025, 1:00 PM",
+    direccion: "Francisco Nieto Rodríguez s/n, Tenencia Morelos, 58341 Morelos, Mich.",
+    mapaEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.4742105242763!2d-101.23761359999999!3d19.6497641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0c647a272d0b%3A0x8c4e170081424704!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1sen!2smx!4v1756763061091!5m2!1sen!2smx"
+  },
+  {
+    title: "Recepción",
+    lugar: "Salón Quinta Joaquín",
+    fecha: "22 de Noviembre de 2025, 3:00 PM",
+    direccion: "Tenencia Morelos, 58341 Morelos, Michoacán",
+    mapaEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.4849023596116!2d-101.24538246616478!3d19.649445116036183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0d002d8031e5%3A0x5d8986b2c70da27!2ssal%C3%B3n%20Quinta%20Joaqu%C3%ADn!5e0!3m2!1sen!2smx!4v1756763514209!5m2!1sen!2smx"
+  }
+];
 ---
 <Layout>
-	<main class="max-w-6xl mx-auto space-y-4 md:space-y-6 bg-gradient-to-l from-[#F7E7CE] via-[#fff8E1] to-[#F7E7CE]">
-		
+	<main class="max-w-6xl mx-auto space-y-2 md:space-y-4 bg-gradient-to-l from-[#E2C290] via-[#F7E7CE] to-[#E2C290]">
+
 		<!-- Sección principal -->
 		<section class="relative flex flex-col items-center justify-center min-h-[80vh] md:min-h-screen py-12">
-			<!-- Fondo -->
-			<img 
-				src="/fondoV3.jpg" 
-				alt="Fondo de rosas"
-				class="absolute inset-0 w-full h-full object-cover object-top"
-			/>
-
-			<!-- Contenido -->
+			<!-- fondo con pointer-events-none (no bloqueará clicks) -->
+			<img src="/fondoV3.jpg" alt="Fondo de rosas" class="absolute inset-0 w-full h-full object-cover object-top pointer-events-none" />
 			<div class="relative z-10 flex flex-col items-center space-y-6">
-				<img 
-					src="/Joven_1.jpg" 
-					alt="Quinceañera" 
-					class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"
-				/>
+				<img src="/Joven_1.jpg" alt="Quinceañera" class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto" />
 				<div class="text-center">
-					<h1 class="text-5xl md:text-7xl font-[Dancing_Script] text-pink-700">Guadalupe</h1>
-					<p class="mt-2 text-xl md:text-2xl font-[Dancing_Script] text-gray-700">22 de Noviembre</p>
-
+					<h1 class="text-5xl md:text-7xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290]">Guadalupe</h1>
+					<p class="mt-2 text-xl md:text-2xl font-[Dancing_Script] text-gray-600">22 de Noviembre</p>
 					<CuentaRegresiva fechaEvento="2025-11-22T01:00:00" />
 				</div>
 			</div>
 		</section>
 
 		<!-- Sección frase -->
-		<section class="relative flex flex-col items-center justify-center py-16">
-			<!-- Fondo -->
-			<img 
-				src="/fondofrasefinal.jpg" 
-				alt="Fondo de rosas" 
-				class="absolute inset-0 w-full h-full object-cover object-center"
-			/>
-
-			<!-- Contenido encima -->
-			<div class="relative z-10 text-center max-w-2xl px-4 items-center">
-				<p class="text-4xl md:text-5xl font-[Dancing_Script] text-pink-700">Mis XV</p>
-				<h3 class="text-2xl md:text-3xl font-[Dancing_Script] text-gray-700">La vida está hecha de momentos inolvidables y uno de los más especiales está por llegar. Mis XV años son un sueño que quiero compartir contigo.</h3>
+		<section class="relative flex flex-col items-center justify-center py-12">
+			<img src="/fondofrasefinal.jpg" alt="Fondo de rosas" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" />
+			<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm r">
+				<p class="text-4xl md:text-5xl font-[Dancing_Script] text-[#E2C290] text-shadow-lg text-shadow-black">Mis XV</p>
+				<h3 class="mt-1 md:mb-1 text-2xl md:text-3xl font-[Dancing_Script] max-w-3xl">
+					La vida está hecha de momentos inolvidables y uno de los más especiales está por llegar. Mis XV años son un sueño que quiero compartir contigo.
+				</h3>
 			</div>
 		</section>
 
 		<!-- Sección dónde y cuándo -->
-		<section class="py-16 px-4 text-center space-y-6">
-			<h2 class="text-4xl font-[Dancing_Script] text-pink-700">¿Dónde y Cuándo?</h2>
-			<p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-				<strong>Ceremonia Religiosa:</strong> 22 de Noviembre de 2025 a las 12:00 PM en la Parroquia San Juan Bautista.
-			</p>
-			<p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-				<strong>Recepción:</strong> 22 de Noviembre de 2025 a las 3:00 PM en el Salón de Eventos La Hacienda.
-			</p>
+		<section class="py-8">
+			<h2 class="text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-12">¿Dónde y Cuándo?</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-10">
+				{lugares.map((lugar, index) => (
+					<article class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col items-center p-6 text-center" aria-label={lugar.title}>
+						<h3 class="text-2xl font-serif mb-4 text-pink-700">{lugar.title}</h3> 
+						<!-- iconos SVG grandes -->
+						<div class="mb-4">
+							{index === 0 ? (
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-28 h-28 md:w-32 md:h-32 text-pink-700" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" role="img">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M3 21l18 0"/>
+								<path d="M10 21v-4a2 2 0 0 1 4 0v4"/>
+								<path d="M10 5l4 0"/>
+								<path d="M12 3l0 5"/>
+								<path d="M6 21v-7m-2 2l8 -8l8 8m-2 -2v7"/>
+								</svg>
+							) : (
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-28 h-28 md:w-32 md:h-32 text-pink-700" fill="currentColor" aria-hidden="true" role="img">
+								<path d="M0 0h24v24H0z" fill="none"/>
+								<path d="M5.004 10.229l-.003 -.186l.001 -.113l.008 -.071l1 -7a1 1 0 0 1 .877 -.853l.113 -.006h10a1 1 0 0 1 .968 .747l.022 .112l1.006 7.05l.004 .091c0 3.226 -2.56 5.564 -6 5.945v4.055h3a1 1 0 0 1 .117 1.993l-.117 .007h-8a1 1 0 0 1 -.117 -1.993l.117 -.007h3v-4.055c-3.358 -.371 -5.878 -2.609 -5.996 -5.716zm11.129 -6.229h-8.267l-.607 4.258a6.001 6.001 0 0 1 5.125 .787l.216 .155a4 4 0 0 0 4.32 .31l-.787 -5.51z"/>
+								</svg>
+							)}
+						</div>
+						<p class="font-semibold mt-2">{lugar.lugar}</p>
+						<p class="text-gray-600 text-sm mt-2">{lugar.fecha}</p>
+						<p class="text-gray-600 text-sm">{lugar.direccion}</p>
+
+						<button class="mt-4 px-4 py-2 bg-pink-700 text-white rounded hover:bg-pink-800 transition" data-index={index} type="button">
+							Ver Mapa
+						</button>
+					</article>
+				))}
+			</div>
 		</section>
 
-		<!-- Sección fotos -->
-		<section class="py-16"></section>
+		<!-- exporto datos en JSON para el script cliente -->
+		<script id="lugares-data" type="application/json" set:html={JSON.stringify(lugares)} />
 
-		<!-- Sección mis personas favoritas -->
-		<section class="py-16"></section>
+		<!-- Modal -->
+		<div id="modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-6" aria-hidden="true">
+			<div class="bg-white rounded-lg shadow-lg max-w-lg w-full mx-auto relative max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true">
+				<button id="closeModal" class="absolute top-3 right-3 text-lg hover:text-red-500 transition" aria-label="Cerrar modal" type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M18 6l-12 12"/>
+						<path d="M6 6l12 12"/>
+					</svg>
+				</button>
+				<div id="modalContent" class="p-6 space-y-4"></div>
+			</div>
+		</div>
 
-		<!-- Sección confirmar asistencia -->
-		<section class="py-16"></section>
+		<!-- script cliente -->
+		<script type="module">
+			(function () {
+				// referencias
+				const modal = document.getElementById("modal");
+				const modalContent = document.getElementById("modalContent");
+				const closeBtn = document.getElementById("closeModal");
+				const dataTag = document.getElementById("lugares-data");
+				let lugaresData = [];
+				try {
+					lugaresData = JSON.parse(dataTag?.textContent || "[]");
+				} catch (err) {
+					console.error("Error parseando lugares-data:", err);
+				}
+
+				// función para mostrar modal
+				function showModal(index) {
+					const lugar = lugaresData[index];
+					if (!lugar) {
+						console.warn("Lugar no encontrado para index", index);
+						return;
+					}
+
+					modalContent.innerHTML = `
+						<h2 class="text-2xl font-bold text-pink-700 mb-4">${lugar.title}</h2>
+						<div class="w-full h-64 md:h-80 relative rounded overflow-hidden shadow mb-4">
+						<iframe class="absolute inset-0 w-full h-full" src="${lugar.mapaEmbed}" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+						<p class="font-semibold">${lugar.lugar}</p>
+						<p class="text-gray-600">${lugar.fecha}</p>
+						<p class="text-gray-600">${lugar.direccion}</p>
+						<div class="pt-4">
+						<button id="closeModalBtn" class="px-4 py-2 bg-pink-700 text-white rounded hover:bg-pink-800 transition" type="button">Cerrar</button>
+						</div>
+					`;
+
+					modal.classList.remove("hidden");
+					modal.classList.add("flex");
+					modal.setAttribute("aria-hidden", "false");
+
+					// agregar listener al botón cerrar dentro del modal (una sola vez)
+					const closeInside = document.getElementById("closeModalBtn");
+					if (closeInside) closeInside.addEventListener("click", hideModal, { once: true });
+				}
+
+				// función para ocultar modal
+				function hideModal() {
+					modal.classList.add("hidden");
+					modal.classList.remove("flex");
+					modal.setAttribute("aria-hidden", "true");
+					modalContent.innerHTML = "";
+				}
+
+				// Añadir listeners a los botones "Ver Mapa"
+				document.addEventListener("DOMContentLoaded", () => {
+					const botones = Array.from(document.querySelectorAll("button[data-index]"));
+					if (!botones.length) console.warn("No se encontraron botones [data-index].");
+					botones.forEach((btn) => {
+						btn.addEventListener("click", (e) => {
+							const idx = Number(btn.dataset.index);
+							if (Number.isNaN(idx)) {
+								console.error("Index inválido en botón:", btn.dataset.index);
+								return;
+							}
+							showModal(idx);
+						});
+					});
+				});
+
+				// cerrar con X
+				if (closeBtn) closeBtn.addEventListener("click", hideModal);
+
+				// cerrar al dar click en el backdrop (fuera del cuadro)
+				modal.addEventListener("click", (e) => {
+				if (e.target === modal) hideModal();
+				});
+
+				// cerrar con ESC
+				document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && !modal.classList.contains("hidden")) hideModal();
+				});
+			})();
+		</script>
+
+		<section class="py-12">
+			<h2 class="text-6xl font-[Dancing_Script] text-pink-700 text-center mb-12">¿Dónde y Cuándo?</h2>
+		</section>
+
 	</main>
 </Layout>
