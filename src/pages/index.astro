@@ -7,7 +7,7 @@ const lugares = [
   {
     title: "Ceremonia",
     lugar: "Parroquia de San Juan Bautista",
-    fecha: "22 de Noviembre de 2025, 1:00 PM",
+    fecha: "22 de Noviembre de 2025, 1:00 pm.",
     direccion: "Francisco Nieto Rodríguez s/n, Tenencia Morelos, 58341 Morelos, Mich.",
     mapaEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.4742105242763!2d-101.23761359999999!3d19.6497641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0c647a272d0b%3A0x8c4e170081424704!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1sen!2smx!4v1756763061091!5m2!1sen!2smx"
@@ -15,7 +15,7 @@ const lugares = [
   {
     title: "Recepción",
     lugar: "Salón Quinta Joaquín",
-    fecha: "22 de Noviembre de 2025, 3:00 PM",
+    fecha: "22 de Noviembre de 2025, 3:00 pm.",
     direccion: "Tenencia Morelos, 58341 Morelos, Michoacán",
     mapaEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.4849023596116!2d-101.24538246616478!3d19.649445116036183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0d002d8031e5%3A0x5d8986b2c70da27!2ssal%C3%B3n%20Quinta%20Joaqu%C3%ADn!5e0!3m2!1sen!2smx!4v1756763514209!5m2!1sen!2smx"
@@ -55,12 +55,21 @@ const lugares = [
 			<h2 class="text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-12">¿Dónde y Cuándo?</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-10">
 				{lugares.map((lugar, index) => (
-					<article class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col items-center p-6 text-center" aria-label={lugar.title}>
-						<h3 class="text-2xl font-serif mb-4 text-pink-700">{lugar.title}</h3> 
+					<article class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col  p-6 " aria-label={lugar.title}>
+						<h3 class="text-2xl font-serif mb-4 text-center">{lugar.title}</h3> 
 						<!-- iconos SVG grandes -->
-						<div class="mb-4">
+						<div class="mb-4 flex justify-center items-center">
 							{index === 0 ? (
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-28 h-28 md:w-32 md:h-32 text-pink-700" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" role="img">
+								<svg xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								class="w-28 h-28 md:w-32 md:h-32 text-[#E2C290] drop-shadow-[0_4px_2px_rgba(0,0,0,0.5)]"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								role="img">
 								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 								<path d="M3 21l18 0"/>
 								<path d="M10 21v-4a2 2 0 0 1 4 0v4"/>
@@ -69,19 +78,26 @@ const lugares = [
 								<path d="M6 21v-7m-2 2l8 -8l8 8m-2 -2v7"/>
 								</svg>
 							) : (
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-28 h-28 md:w-32 md:h-32 text-pink-700" fill="currentColor" aria-hidden="true" role="img">
+								<svg xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								class="w-28 h-28 md:w-32 md:h-32 text-[#E2C290] drop-shadow-[0_4px_2px_rgba(0,0,0,0.5)]"
+								fill="currentColor"
+								aria-hidden="true"
+								role="img">
 								<path d="M0 0h24v24H0z" fill="none"/>
 								<path d="M5.004 10.229l-.003 -.186l.001 -.113l.008 -.071l1 -7a1 1 0 0 1 .877 -.853l.113 -.006h10a1 1 0 0 1 .968 .747l.022 .112l1.006 7.05l.004 .091c0 3.226 -2.56 5.564 -6 5.945v4.055h3a1 1 0 0 1 .117 1.993l-.117 .007h-8a1 1 0 0 1 -.117 -1.993l.117 -.007h3v-4.055c-3.358 -.371 -5.878 -2.609 -5.996 -5.716zm11.129 -6.229h-8.267l-.607 4.258a6.001 6.001 0 0 1 5.125 .787l.216 .155a4 4 0 0 0 4.32 .31l-.787 -5.51z"/>
 								</svg>
 							)}
 						</div>
-						<p class="font-semibold mt-2">{lugar.lugar}</p>
-						<p class="text-gray-600 text-sm mt-2">{lugar.fecha}</p>
-						<p class="text-gray-600 text-sm">{lugar.direccion}</p>
+						<p class="font-semibold mt-2 text-center font-serif">{lugar.lugar}</p>
+						<p class="text-gray-800 text-sm mt-4 font-serif"><span class="font-bold">Cuando: </span>{lugar.fecha}</p>
+						<p class="text-gray-800 text-sm mt-2 font-serif"><span class="font-bold">Dirección: </span>{lugar.direccion}</p>
 
-						<button class="mt-4 px-4 py-2 bg-pink-700 text-white rounded hover:bg-pink-800 transition" data-index={index} type="button">
-							Ver Mapa
-						</button>
+						<div class="flex justify-center mt-6">
+							<button class="px-4 py-2 max-w-3xs bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 rounded md:hover:bg-[#deb574] transition" data-index={index} type="button">
+								Ver Mapa
+							</button>
+						</div>
 					</article>
 				))}
 			</div>
@@ -91,9 +107,9 @@ const lugares = [
 		<script id="lugares-data" type="application/json" set:html={JSON.stringify(lugares)} />
 
 		<!-- Modal -->
-		<div id="modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-6" aria-hidden="true">
+		<div id="modal" class="fixed inset-0 z-50 md:h-screen bg-black/60 backdrop-blur-sm hidden items-center justify-center p-6" aria-hidden="true">
 			<div class="bg-white rounded-lg shadow-lg max-w-lg w-full mx-auto relative max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true">
-				<button id="closeModal" class="absolute top-3 right-3 text-lg hover:text-red-500 transition" aria-label="Cerrar modal" type="button">
+				<button id="closeModal" class="absolute top-3 right-3 text-lg hover:text-[#deb574] transition" aria-label="Cerrar modal" type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 						<path d="M18 6l-12 12"/>
@@ -128,17 +144,17 @@ const lugares = [
 					}
 
 					modalContent.innerHTML = `
-						<h2 class="text-2xl font-bold text-pink-700 mb-4">${lugar.title}</h2>
+						<h2 class="text-2xl font-serif mb-4">${lugar.title}</h2>
 						<div class="w-full h-64 md:h-80 relative rounded overflow-hidden shadow mb-4">
-						<iframe class="absolute inset-0 w-full h-full" src="${lugar.mapaEmbed}" frameborder="0"
+							<iframe class="absolute inset-0 w-full h-full" src="${lugar.mapaEmbed}" frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						</div>
-						<p class="font-semibold">${lugar.lugar}</p>
-						<p class="text-gray-600">${lugar.fecha}</p>
-						<p class="text-gray-600">${lugar.direccion}</p>
+						<p class="font-semibold mt-2 text-center font-serif">${lugar.lugar}</p>
+						<p class="text-gray-800 text-sm mt-4 font-serif"><span class="font-bold">Cuando: </span>${lugar.fecha}</p>
+						<p class="text-gray-800 text-sm font-serif"><span class="font-bold">Dirección: </span>${lugar.direccion}</p>
 						<div class="pt-4">
-						<button id="closeModalBtn" class="px-4 py-2 bg-pink-700 text-white rounded hover:bg-pink-800 transition" type="button">Cerrar</button>
+							<button id="closeModalBtn" class="px-4 py-2 bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 rounded md:hover:bg-[#deb574] transition" type="button">Cerrar</button>
 						</div>
 					`;
 
