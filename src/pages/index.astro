@@ -238,5 +238,65 @@ const lugares = [
 			</div>
 		</div>
 		</section>
+
+
+		<section class="relative w-full max-w-6xl mx-auto py-12">
+			<img src="/Carrusel7.png" 
+       alt="Fondo carrusel" 
+       class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none" />
+  <!-- Carrusel -->
+  	<div class="overflow-hidden relative flex flex-col items-center justify-center z-10">
+	<h2 class="relative z-12 text-5xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-8">
+  		Recuerdos Dorados
+		</h2>
+    <div id="carrusel" class="flex transition-transform duration-700">
+      <!-- Foto 1 -->
+      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+        <img src="/Nina_1.jpg" alt="Quinceañera 1"
+             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+      </div>
+      <!-- Foto 2 -->
+      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+        <img src="/Joven_2.jpg" alt="Quinceañera 2"
+             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+      </div>
+      <!-- Foto 3 -->
+      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+        <img src="/Nina_2.jpg" alt="Quinceañera 3"
+             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+      </div>
+      <!-- Foto 4 -->
+      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+        <img src="/Joven_1.jpg" alt="Quinceañera 4"
+             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const carrusel = document.getElementById("carrusel");
+  let index = 0;
+
+  function updateCarrusel() {
+	if (!carrusel || !carrusel.children.length) return;
+	const width = (carrusel.children[0] as HTMLElement).offsetWidth;
+	carrusel.style.transform = `translateX(${-index * width}px)`;
+  }
+
+  function autoPlay() {
+	if (window.innerWidth < 1024 && carrusel && carrusel.children.length) {
+		index++;
+		if (index >= carrusel.children.length) index = 0;
+		updateCarrusel();
+	}
+  }
+
+  // Cambiar cada 3 segundos
+  setInterval(autoPlay, 3000);
+
+  window.addEventListener("resize", updateCarrusel);
+</script>
+
 	</main>
 </Layout>
