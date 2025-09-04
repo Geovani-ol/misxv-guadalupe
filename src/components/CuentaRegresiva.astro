@@ -15,7 +15,7 @@ const { fechaEvento } = Astro.props;
     const distance = targetDate - now;
 
     if (distance < 0) {
-      countdown.innerHTML = "¡El gran día ha llegado!";
+      countdown.innerHTML = `<h1 class="text-3xl md:text-4xl font-serif">¡El gran día ha llegado,<br> No faltes!</h1`;
       return;
     }
 

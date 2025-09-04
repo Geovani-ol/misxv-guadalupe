@@ -34,7 +34,7 @@ const lugares = [
 				<div class="text-center">
 					<h1 class="text-5xl md:text-7xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290]">Guadalupe</h1>
 					<p class="mt-2 text-xl md:text-2xl font-[Dancing_Script] text-gray-600">22 de Noviembre</p>
-					<CuentaRegresiva fechaEvento="2025-11-22T01:00:00" />
+					<CuentaRegresiva fechaEvento="2025-11-22T00:00:00" />
 				</div>
 			</div>
 		</section>
@@ -42,9 +42,9 @@ const lugares = [
 		<!-- Sección frase -->
 		<section class="relative flex flex-col items-center justify-center py-12">
 			<img src="/fondofrasefinal.jpg" alt="Fondo de rosas" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" />
-			<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm r">
+			<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm rounded-2xl">
 				<p class="text-4xl md:text-5xl font-[Dancing_Script] text-[#E2C290] text-shadow-lg text-shadow-black">Mis XV</p>
-				<h3 class="mt-1 md:mb-1 text-2xl md:text-3xl font-[Dancing_Script] max-w-3xl">
+				<h3 class="mt-3 md:mb-1 text-xl md:text-2xl font-serif max-w-3xl">
 					La vida está hecha de momentos inolvidables y uno de los más especiales está por llegar. Mis XV años son un sueño que quiero compartir contigo.
 				</h3>
 			</div>
@@ -52,10 +52,10 @@ const lugares = [
 
 		<!-- Sección dónde y cuándo -->
 		<section class="py-8">
-			<h2 class="text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-12">¿Dónde y Cuándo?</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-10">
+			<h2 class="text-5xl md:text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-12">¿Dónde y Cuándo?</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-10">
 				{lugares.map((lugar, index) => (
-					<article class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col  p-6 " aria-label={lugar.title}>
+					<article class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col p-6 " aria-label={lugar.title}>
 						<h3 class="text-2xl font-serif mb-4 text-center">{lugar.title}</h3> 
 						<!-- iconos SVG grandes -->
 						<div class="mb-4 flex justify-center items-center">
@@ -94,7 +94,7 @@ const lugares = [
 						<p class="text-gray-800 text-sm mt-2 font-serif"><span class="font-bold">Dirección: </span>{lugar.direccion}</p>
 
 						<div class="flex justify-center mt-6">
-							<button class="px-4 py-2 max-w-3xs bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 rounded md:hover:bg-[#deb574] transition" data-index={index} type="button">
+							<button class="px-4 py-2 max-w-3xs font-serif bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 rounded md:hover:bg-[#deb574] transition" data-index={index} type="button">
 								Ver Mapa
 							</button>
 						</div>
@@ -107,7 +107,7 @@ const lugares = [
 		<script id="lugares-data" type="application/json" set:html={JSON.stringify(lugares)} />
 
 		<!-- Modal -->
-		<div id="modal" class="fixed inset-0 z-50 md:h-screen bg-black/60 backdrop-blur-sm hidden items-center justify-center p-6" aria-hidden="true">
+		<div id="modal" class="fixed inset-0 z-50 h-dvh bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" aria-hidden="true">
 			<div class="bg-white rounded-lg shadow-lg max-w-lg w-full mx-auto relative max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true">
 				<button id="closeModal" class="absolute top-3 right-3 text-lg hover:text-[#deb574] transition" aria-label="Cerrar modal" type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -154,7 +154,7 @@ const lugares = [
 						<p class="text-gray-800 text-sm mt-4 font-serif"><span class="font-bold">Cuando: </span>${lugar.fecha}</p>
 						<p class="text-gray-800 text-sm font-serif"><span class="font-bold">Dirección: </span>${lugar.direccion}</p>
 						<div class="pt-4">
-							<button id="closeModalBtn" class="px-4 py-2 bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 rounded md:hover:bg-[#deb574] transition" type="button">Cerrar</button>
+							<button id="closeModalBtn" class="px-4 py-2 font-serif bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 rounded md:hover:bg-[#deb574] transition" type="button">Cerrar</button>
 						</div>
 					`;
 
@@ -207,36 +207,282 @@ const lugares = [
 		</script>
 
 
-
+		<!-- Sección agradecimientos -->
 		<section class="relative flex flex-col items-center justify-center py-12">
-		<img src="/XV_Guadalupe.png" alt="Fondo rosas" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" />
-		<h2 class="relative z-10 text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-12">
-  		Agradezco a:
-		</h2>
+			<img src="/XV_Guadalupe.png" alt="Fondo rosas" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" />
+			<h2 class="relative z-10 text-5xl md:text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-12">
+				Agradezco a:
+			</h2>
 
-		<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-6">
-			<!-- Papás -->
-			<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm r">
-				
-				<p class="text-4xl md:text-5xl font-[Dancing_Script] text-[#E2C290] text-shadow-lg text-shadow-black">
-					Mis padres</p>
-				</br>
-				<h3 class="mt-1 md:mb-1 text-2xl md:text-3xl font-[Dancing_Script] max-w-3xl leading-relaxed">
-					Sandro Olalde Nieto</br>Rosaura Rodriguez Morales
-				</h3>
+			<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-6">
+				<!-- Papás -->
+				<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm rounded-2xlxx|">
+
+					<p class="text-2xl md:text-3xl font-serif text-[#E2C290] text-shadow-md text-shadow-black">
+						Mis padres
+					</p>
+					</br>
+					<h3 class="mt-1 md:mb-1 text-xl md:text-2xl font-serif max-w-3xl leading-relaxed">
+						Sandro Olalde Nieto</br>Rosaura Rodriguez Morales
+					</h3>
+				</div>
+
+				<!-- Padrinos -->
+				<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm rounded-2xl">
+					<p class="text-2xl md:text-3xl font-serif text-[#E2C290] text-shadow-md text-shadow-black">
+						Mis padrinos
+					</p>
+					</br>
+					<h3 class="mt-1 md:mb-1 text-xl md:text-2xl font-serif max-w-3xl leading-relaxed">
+						Mauricio Olalde Nieto <br /> Sonia Trejo Olalde
+					</h3>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sección confirmar asistencia -->
+		<section class="relative flex flex-col items-center justify-center py-12 px-4">
+			<h2 class="text-5xl md:text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center">
+				Confirmar Asistencia
+			</h2>
+			<p class="text-center text-gray-700 mt-6 mb-10 max-w-lg font-serif">
+				Elige <span class="font-semibold">Persona</span> si asistirás solo o acompañado.  
+				Elige <span class="font-semibold">Familia</span> si asistirán varios miembros de tu familia.
+			</p>
+
+			<!-- Opciones de tipo de asistencia -->
+			<div class="flex gap-6 mb-8">
+				<button id="btnPersona" type="button" class="px-6 py-2 font-serif rounded-lg bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
+					Persona
+				</button>
+				<button id="btnFamilia" type="button" class="px-6 py-2 font-serif rounded-lg bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
+					Familia
+				</button>
 			</div>
 
-			<!-- Padrinos -->
-			<div class="relative z-10 flex flex-col items-center text-center p-4 bg-black/0.5 backdrop-blur-sm rounded-2xl">
-				
-				<p class="text-4xl md:text-5xl font-[Dancing_Script] text-[#E2C290] text-shadow-lg text-shadow-black">
-					Mis padrinos</p>
-				</br>
-				<h3 class="mt-1 md:mb-1 text-2xl md:text-3xl font-[Dancing_Script] max-w-3xl leading-relaxed">
-				Mauricio Olalde Nieto <br /> Sonia Trejo Olalde
-			</h3>
+			<!-- Formulario Persona (por defecto visible) -->
+			<form id="formPersona" class="w-full max-w-lg bg-white p-6 rounded-lg shadow-md space-y-4">
+				<div>
+					<label for="nombrePersona" class="block text-sm font-medium text-gray-700">Nombre</label>
+					<input id="nombrePersona" name="nombrePersona" type="text" required
+						class="mt-1 block p-1 w-full rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
+				</div>
+
+				<div>
+					<label class="block text-sm font-medium text-gray-700">¿Asistirá acompañado?</label>
+					<select id="acompanado" name="acompanado"
+						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]">
+						<option value="no">No, iré solo</option>
+						<option value="si">Sí, acompañado</option>
+					</select>
+				</div>
+
+				<div id="campoCantidadAcompañantes" class="hidden">
+					<label for="numAcompanantes" class="block text-sm font-medium text-gray-700">Número de acompañantes</label>
+					<input id="numAcompanantes" name="numAcompanantes" type="number" min="1"
+						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
+				</div>
+
+				<div>
+					<label for="mensajePersona" class="block text-sm font-medium text-gray-700">Mensaje (opcional)</label>
+					<textarea id="mensajePersona" name="mensajePersona" rows="3"
+						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]"></textarea>
+				</div>
+
+				<button type="submit" class="w-full bg-[#E2C290] py-2 px-4 font-serif rounded-lg shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
+					Confirmar
+				</button>
+			</form>
+
+			<!-- Formulario Familia (por defecto oculto) -->
+			<form id="formFamilia" class="hidden w-full max-w-lg bg-white p-6 rounded-lg shadow-md space-y-4">
+				<div>
+					<label for="nombreFamilia" class="block text-sm font-medium text-gray-700">Nombre de la familia</label>
+					<input id="nombreFamilia" name="nombreFamilia" type="text" required
+						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
+				</div>
+
+				<div>
+					<label for="integrantes" class="block text-sm font-medium text-gray-700">Número de integrantes</label>
+					<input id="integrantes" name="integrantes" type="number" min="1" required
+						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
+				</div>
+
+				<div>
+					<label for="mensajeFamilia" class="block text-sm font-medium text-gray-700">Mensaje (opcional)</label>
+					<textarea id="mensajeFamilia" name="mensajeFamilia" rows="3"
+						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]"></textarea>
+				</div>
+
+				<button type="submit" class="w-full bg-[#E2C290] py-2 px-4 font-serif rounded-lg shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
+					Confirmar
+				</button>
+			</form>
+		</section>
+
+		<!-- Script -->
+		<script type="module">
+			(function () {
+				// referencias
+				const btnPersona = document.getElementById("btnPersona");
+				const btnFamilia = document.getElementById("btnFamilia");
+				const formPersona = document.getElementById("formPersona");
+				const formFamilia = document.getElementById("formFamilia");
+				const acompanado = document.getElementById("acompanado");
+				const personasExtra = document.getElementById("campoCantidadAcompañantes");
+
+				// mostrar/ocultar formularios
+				function mostrarFormulario(tipo) {
+					if (!formPersona || !formFamilia) return;
+					if (tipo === "persona") {
+						formPersona.classList.remove("hidden");
+						formFamilia.classList.add("hidden");
+					} else {
+						formFamilia.classList.remove("hidden");
+						formPersona.classList.add("hidden");
+					}
+				}
+
+				// listeners botones
+				btnPersona?.addEventListener("click", () => mostrarFormulario("persona"));
+				btnFamilia?.addEventListener("click", () => mostrarFormulario("familia"));
+
+				// por defecto mostrar persona
+				mostrarFormulario("persona");
+
+				// mostrar campo extra si viene acompañado
+				acompanado?.addEventListener("change", () => {
+					if (!personasExtra) return;
+					if (acompanado.value === "si") {
+						personasExtra.classList.remove("hidden");
+					} else {
+						personasExtra.classList.add("hidden");
+					}
+				});
+
+				// manejar envío de formulario Persona
+				formPersona?.addEventListener("submit", (e) => {
+					e.preventDefault();
+					alert("Gracias por confirmar.");
+					if (formPersona instanceof HTMLFormElement) formPersona.reset();
+					mostrarFormulario("persona");
+				});
+
+				// manejar envío de formulario Familia
+				formFamilia?.addEventListener("submit", (e) => {
+					e.preventDefault();
+					alert("Gracias por confirmar.");
+					if (formFamilia instanceof HTMLFormElement) formFamilia.reset();
+					mostrarFormulario("persona");
+				});
+			})();
+		</script>
+
+		<footer class="text-gray-800 py-4 mt-12">
+			<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center">
+				<p class="text-sm md:text-base">&copy; 2025 misXV-Guadalupe | Todos los derechos reservados</p>
+				<div class="text-sm md:text-base mt-2 md:mt-0">
+					Desarrollado por: 
+					<span class="font-semibold">
+						Jose Israel / David Geovani
+					</span> 
+				</div>
+				<div class="flex gap-4 mt-2 md:mt-0">
+						<a href="mailto:contacto@tudominio.com" class="hover:underline">Contacto</a>
+						<a href="https://www.tuportafolio.com" target="_blank" class="hover:underline">Portafolio</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Música de fondo -->
+		<audio id="musicaFondo" src="/Lana-Del-Rey-Say-Yes-To-Heaven.mp3" loop></audio>
+
+		<!-- Modal de bienvenida -->
+		<div id="modalBienvenida" class="fixed inset-0 z-50 h-dvh flex items-center justify-center bg-black/60 backdrop-blur-sm">
+			<div class="bg-white rounded-2xl shadow-xl p-6 text-center max-w-sm mx-auto">
+				<h2 class="text-2xl font-serif mb-4">Bienvenidos a la invitación de Guadalupe</h2>
+				<button id="btnIngresar" class="px-6 py-2 bg-[#E2C290] font-serif rounded-lg shadow-2xs shadow-gray-700 md:hover:scale-105 transition">
+					Ingresar
+				</button>
 			</div>
 		</div>
-		</section>
+
+		<!-- Icono flotante música -->
+		<div id="iconoMusicaContenedor" 
+			class="fixed right-0 top-1/2 transform -translate-y-1/2 z-40 cursor-pointer 
+					bg-black/40 backdrop-blur-md w-14 h-14 flex items-center justify-center 
+					rounded-l-lg">
+		
+			<!-- GIF cuando la música está activa -->
+			<img id="gifMusica" src="/music.gif" alt="Reproduciendo" 
+				class="hidden w-10 h-10 drop-shadow-lg" />
+
+			<!-- SVG cuando está en pausa (más pequeño) -->
+			<svg id="svgMusica" xmlns="http://www.w3.org/2000/svg" 
+				viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" 
+				stroke-linecap="round" stroke-linejoin="round" 
+				class="w-6 h-6 drop-shadow-lg transition-transform duration-300">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+				<path d="M15 8a5 5 0 0 1 0 8" />
+				<path d="M17.7 5a9 9 0 0 1 0 14" />
+				<path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+			</svg>
+		</div>
+
+		<script type="module">
+			(function () {
+				const audio = document.getElementById("musicaFondo");
+				const gif = document.getElementById("gifMusica");
+				const svg = document.getElementById("svgMusica");
+				const contenedor = document.getElementById("iconoMusicaContenedor");
+
+				const modal = document.getElementById("modalBienvenida");
+				const btnIngresar = document.getElementById("btnIngresar");
+
+				// Función para actualizar iconos
+				function actualizarIcono() {
+					if (!audio.paused) {
+						svg.classList.add("hidden");
+						gif.classList.remove("hidden");
+					} else {
+						gif.classList.add("hidden");
+						svg.classList.remove("hidden");
+					}
+				}
+
+				// Al hacer clic en ingresar → inicia música y se cierra modal
+				btnIngresar.addEventListener("click", () => {
+					modal.style.display = "none";
+					audio.play();
+					actualizarIcono();
+				});
+
+				// Si el usuario hace clic fuera del modal también inicia
+				modal.addEventListener("click", (e) => {
+					if (e.target === modal) {
+						modal.style.display = "none";
+						audio.play();
+						actualizarIcono();
+					}
+				});
+
+				// Alternar música desde el icono flotante
+				contenedor.addEventListener("click", () => {
+					if (audio.paused) {
+						audio.play();
+					} else {
+						audio.pause();
+					}
+					actualizarIcono();
+				});
+
+				// Eventos de audio
+				audio.addEventListener("play", actualizarIcono);
+				audio.addEventListener("pause", actualizarIcono);
+
+				// Estado inicial
+				actualizarIcono();
+			})();
+		</script>
 	</main>
 </Layout>
