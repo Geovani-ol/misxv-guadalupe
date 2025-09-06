@@ -1,7 +1,7 @@
----
-// src/pages/index.astro (o donde lo tengas)
+---	
 import Layout from "../layouts/Layout.astro";
 import CuentaRegresiva from "../components/CuentaRegresiva.astro";
+import ConfirmarAsistencia from "../components/ConfirmarAsistencia";
 
 const lugares = [
   {
@@ -243,199 +243,64 @@ const lugares = [
 
 		<section class="relative w-full max-w-6xl mx-auto py-12">
 			<img src="/Carrusel7.png" 
-       alt="Fondo carrusel" 
-       class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none" />
-  <!-- Carrusel -->
-  	<div class="overflow-hidden relative flex flex-col items-center justify-center z-10">
-	<h2 class="relative z-12 text-5xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-8">
-  		Recuerdos Dorados
-		</h2>
-    <div id="carrusel" class="flex transition-transform duration-700">
-      <!-- Foto 1 -->
-      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
-        <img src="/Nina_1.jpg" alt="Quinceañera 1"
-             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
-      </div>
-      <!-- Foto 2 -->
-      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
-        <img src="/Joven_2.jpg" alt="Quinceañera 2"
-             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
-      </div>
-      <!-- Foto 3 -->
-      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
-        <img src="/Nina_2.jpg" alt="Quinceañera 3"
-             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
-      </div>
-      <!-- Foto 4 -->
-      <div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
-        <img src="/Joven_1.jpg" alt="Quinceañera 4"
-             class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  const carrusel = document.getElementById("carrusel");
-  let index = 0;
-
-  function updateCarrusel() {
-	if (!carrusel || !carrusel.children.length) return;
-	const width = (carrusel.children[0] as HTMLElement).offsetWidth;
-	carrusel.style.transform = `translateX(${-index * width}px)`;
-  }
-
-  function autoPlay() {
-	if (window.innerWidth < 1024 && carrusel && carrusel.children.length) {
-		index++;
-		if (index >= carrusel.children.length) index = 0;
-		updateCarrusel();
-	}
-  }
-
-  // Cambiar cada 3 segundos
-  setInterval(autoPlay, 3000);
-
-  window.addEventListener("resize", updateCarrusel);
-</script>
-
-		<!-- Sección confirmar asistencia -->
-		<section class="relative flex flex-col items-center justify-center py-12 px-4">
-			<h2 class="text-5xl md:text-6xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center">
-				Confirmar Asistencia
-			</h2>
-			<p class="text-center text-gray-700 mt-6 mb-10 max-w-lg font-serif">
-				Elige <span class="font-semibold">Persona</span> si asistirás solo o acompañado.  
-				Elige <span class="font-semibold">Familia</span> si asistirán varios miembros de tu familia.
-			</p>
-
-			<!-- Opciones de tipo de asistencia -->
-			<div class="flex gap-6 mb-8">
-				<button id="btnPersona" type="button" class="px-6 py-2 font-serif rounded-lg bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
-					Persona
-				</button>
-				<button id="btnFamilia" type="button" class="px-6 py-2 font-serif rounded-lg bg-[#E2C290] shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
-					Familia
-				</button>
+				alt="Fondo carrusel" 
+				class="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none" />
+			<!-- Carrusel -->
+			<div class="overflow-hidden relative flex flex-col items-center justify-center z-10">
+				<h2 class="relative z-12 text-5xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-8">
+					Recuerdos Dorados
+				</h2>
+			<div id="carrusel" class="flex transition-transform duration-700">
+				<!-- Foto 1 -->
+				<div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+					<img src="/Nina_1.jpg" alt="Quinceañera 1"
+						class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+				</div>
+				<!-- Foto 2 -->
+				<div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+					<img src="/Joven_2.jpg" alt="Quinceañera 2"
+						class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+				</div>
+				<!-- Foto 3 -->
+				<div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+					<img src="/Nina_2.jpg" alt="Quinceañera 3"
+						class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+				</div>
+				<!-- Foto 4 -->
+				<div class="min-w-full sm:min-w-1/2 lg:min-w-1/4 flex-shrink-0 p-2 flex justify-center">
+					<img src="/Joven_1.jpg" alt="Quinceañera 4"
+						class="rounded-2xl shadow-lg max-h-64 md:max-h-80 w-auto"/>
+				</div>
 			</div>
-
-			<!-- Formulario Persona (por defecto visible) -->
-			<form id="formPersona" class="w-full max-w-lg bg-white p-6 rounded-lg shadow-md space-y-4">
-				<div>
-					<label for="nombrePersona" class="block text-sm font-medium text-gray-700">Nombre</label>
-					<input id="nombrePersona" name="nombrePersona" type="text" required
-						class="mt-1 block p-1 w-full rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
-				</div>
-
-				<div>
-					<label class="block text-sm font-medium text-gray-700">¿Asistirá acompañado?</label>
-					<select id="acompanado" name="acompanado"
-						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]">
-						<option value="no">No, iré solo</option>
-						<option value="si">Sí, acompañado</option>
-					</select>
-				</div>
-
-				<div id="campoCantidadAcompañantes" class="hidden">
-					<label for="numAcompanantes" class="block text-sm font-medium text-gray-700">Número de acompañantes</label>
-					<input id="numAcompanantes" name="numAcompanantes" type="number" min="1"
-						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
-				</div>
-
-				<div>
-					<label for="mensajePersona" class="block text-sm font-medium text-gray-700">Mensaje (opcional)</label>
-					<textarea id="mensajePersona" name="mensajePersona" rows="3"
-						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]"></textarea>
-				</div>
-
-				<button type="submit" class="w-full bg-[#E2C290] py-2 px-4 font-serif rounded-lg shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
-					Confirmar
-				</button>
-			</form>
-
-			<!-- Formulario Familia (por defecto oculto) -->
-			<form id="formFamilia" class="hidden w-full max-w-lg bg-white p-6 rounded-lg shadow-md space-y-4">
-				<div>
-					<label for="nombreFamilia" class="block text-sm font-medium text-gray-700">Nombre de la familia</label>
-					<input id="nombreFamilia" name="nombreFamilia" type="text" required
-						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
-				</div>
-
-				<div>
-					<label for="integrantes" class="block text-sm font-medium text-gray-700">Número de integrantes</label>
-					<input id="integrantes" name="integrantes" type="number" min="1" required
-						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]" />
-				</div>
-
-				<div>
-					<label for="mensajeFamilia" class="block text-sm font-medium text-gray-700">Mensaje (opcional)</label>
-					<textarea id="mensajeFamilia" name="mensajeFamilia" rows="3"
-						class="mt-1 block w-full p-1 rounded-md border-gray-300 shadow-sm focus:ring-[#E2C290] focus:border-[#E2C290]"></textarea>
-				</div>
-
-				<button type="submit" class="w-full bg-[#E2C290] py-2 px-4 font-serif rounded-lg shadow-2xs shadow-gray-700 md:hover:scale-105 hover:bg-[#deb574] transition">
-					Confirmar
-				</button>
-			</form>
 		</section>
 
-		<!-- Script -->
-		<script type="module">
-			(function () {
-				// referencias
-				const btnPersona = document.getElementById("btnPersona");
-				const btnFamilia = document.getElementById("btnFamilia");
-				const formPersona = document.getElementById("formPersona");
-				const formFamilia = document.getElementById("formFamilia");
-				const acompanado = document.getElementById("acompanado");
-				const personasExtra = document.getElementById("campoCantidadAcompañantes");
+		<script>
+			const carrusel = document.getElementById("carrusel");
+			let index = 0;
 
-				// mostrar/ocultar formularios
-				function mostrarFormulario(tipo) {
-					if (!formPersona || !formFamilia) return;
-					if (tipo === "persona") {
-						formPersona.classList.remove("hidden");
-						formFamilia.classList.add("hidden");
-					} else {
-						formFamilia.classList.remove("hidden");
-						formPersona.classList.add("hidden");
-					}
+			function updateCarrusel() {
+				if (!carrusel || !carrusel.children.length) return;
+				const width = (carrusel.children[0] as HTMLElement).offsetWidth;
+				carrusel.style.transform = `translateX(${-index * width}px)`;
+			}
+
+			function autoPlay() {
+				if (window.innerWidth < 1024 && carrusel && carrusel.children.length) {
+					index++;
+					if (index >= carrusel.children.length) index = 0;
+					updateCarrusel();
 				}
+			}
 
-				// listeners botones
-				btnPersona?.addEventListener("click", () => mostrarFormulario("persona"));
-				btnFamilia?.addEventListener("click", () => mostrarFormulario("familia"));
+			// Cambiar cada 3 segundos
+			setInterval(autoPlay, 3000);
 
-				// por defecto mostrar persona
-				mostrarFormulario("persona");
-
-				// mostrar campo extra si viene acompañado
-				acompanado?.addEventListener("change", () => {
-					if (!personasExtra) return;
-					if (acompanado.value === "si") {
-						personasExtra.classList.remove("hidden");
-					} else {
-						personasExtra.classList.add("hidden");
-					}
-				});
-
-				// manejar envío de formulario Persona
-				formPersona?.addEventListener("submit", (e) => {
-					e.preventDefault();
-					alert("Gracias por confirmar.");
-					if (formPersona instanceof HTMLFormElement) formPersona.reset();
-					mostrarFormulario("persona");
-				});
-
-				// manejar envío de formulario Familia
-				formFamilia?.addEventListener("submit", (e) => {
-					e.preventDefault();
-					alert("Gracias por confirmar.");
-					if (formFamilia instanceof HTMLFormElement) formFamilia.reset();
-					mostrarFormulario("persona");
-				});
-			})();
+			window.addEventListener("resize", updateCarrusel);
 		</script>
+
+		<!-- Sección confirmar asistencia -->
+		<ConfirmarAsistencia client:load />
+
 
 		<footer class="text-gray-800 py-4 mt-12">
 			<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center">

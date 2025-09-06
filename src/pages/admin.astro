@@ -1,0 +1,176 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { supabase } from "../lib/supabaseClient";
+import VerificarCodigo from "../components/VerificarCodigo";
+
+const { data: personas } = await supabase.from("personas").select("*");
+const { data: familias } = await supabase.from("familias").select("*");
+
+const personasSolas = personas?.filter((p) => !p.acompanado) ?? [];
+const personasAcompanadas = personas?.filter((p) => p.acompanado) ?? [];
+
+// Calcular total asistentes
+const totalPersonasSolas = personasSolas.length;
+const totalAcompanadas = personasAcompanadas.reduce(
+  (acc, p) => acc + 1 + (p.num_acompanantes || 0),
+  0,
+);
+const totalFamilias =
+  familias?.reduce((acc, f) => acc + (f.num_integrantes || 0), 0) ?? 0;
+
+const totalAsistentes = totalPersonasSolas + totalAcompanadas + totalFamilias;
+---
+
+<Layout>
+  <main
+    class="max-w-6xl mx-auto space-y-12 p-2 md:p-6 bg-gradient-to-l from-[#E2C290] via-[#F7E7CE] to-[#E2C290]"
+  >
+    <h1
+      class="text-5xl md:text-6xl font-[Dancing_Script] text-center mt-5 md:my-10 text-shadow-lg text-shadow-[#E2C290]"
+    >
+      Panel de Confirmaciones
+    </h1>
+
+    <!-- Buscador de código -->
+    <VerificarCodigo
+      personasSolas={personasSolas}
+      personasAcompanadas={personasAcompanadas}
+      familias={familias}
+      client:load
+    />
+
+    <!-- TOTAL ASISTENTES -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 text-center mx-auto">
+      <h2 class="text-2xl md:text-3xl font-serif text-gray-700">
+        Total de Asistentes Confirmados
+      </h2>
+      <p
+        class="text-4xl md:text-5xl font-bold text-gray-800 text-shadow-md text-shadow-[#E2C290] mt-3"
+      >
+        {totalAsistentes}
+      </p>
+      <p class="text-sm text-gray-500 mt-2">
+        (Personas, acompañantes y familias)
+      </p>
+    </div>
+
+    <!-- PERSONAS SOLAS -->
+    <section
+      class="bg-white shadow-xl rounded-xl md:rounded-2xl mt-12 px-2 py-6 md:p-6 overflow-x-auto"
+    >
+      <h2 class="text-2xl md:text-3xl font-serif mb-6 text-center text-gray-800">
+        Personas Solas
+      </h2>
+      <table
+        class="min-w-[700px] md:min-w-full border-collapse border border-gray-200"
+      >
+        <thead class="bg-gray-800 text-[#E2C290] uppercase text-sm md:text-base">
+          <tr>
+            <th class="px-4 py-3 border-b">Nombre</th>
+            <th class="px-4 py-3 border-b">Correo</th>
+            <th class="px-4 py-3 border-b text-center">Mensaje</th>
+            <th class="px-4 py-3 border-b text-center">Código</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            personasSolas.map((p) => (
+              <tr class="hover:bg-gray-50 transition-shadow shadow-sm">
+                <td class="px-4 py-2 border-b">{p.nombre}</td>
+                <td class="px-4 py-2 border-b">{p.correo}</td>
+                <td class="px-4 py-2 border-b text-center min-w-[250px] break-words whitespace-normal">
+                  {p.mensaje}
+                </td>
+                <td class="px-4 py-2 border-b text-center font-mono">
+                  {p.codigo_acceso}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <!-- PERSONAS ACOMPAÑADAS -->
+    <section
+      class="bg-white shadow-xl rounded-2xl md:rounded-2xl px-2 py-6 md:p-6 overflow-x-auto"
+    >
+      <h2 class="text-2xl md:text-3xl font-serif mb-6 text-center text-gray-800">
+        Personas Acompañadas
+      </h2>
+      <table
+        class="min-w-[850px] md:min-w-full border-collapse border border-gray-200"
+      >
+        <thead class="bg-gray-800 text-[#E2C290] uppercase text-sm md:text-base">
+          <tr>
+            <th class="px-4 py-3 border-b">Nombre</th>
+            <th class="px-4 py-3 border-b">Correo</th>
+            <th class="px-4 py-3 border-b text-center">Acompañantes</th>
+            <th class="px-4 py-3 border-b text-center">Mensaje</th>
+            <th class="px-4 py-3 border-b text-center">Código</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            personasAcompanadas.map((p) => (
+              <tr class="hover:bg-gray-50 transition-shadow shadow-sm">
+                <td class="px-4 py-2 border-b">{p.nombre}</td>
+                <td class="px-4 py-2 border-b">{p.correo}</td>
+                <td class="px-4 py-2 border-b text-center">
+                  {p.num_acompanantes}
+                </td>
+                <td class="px-4 py-2 border-b text-center min-w-[250px] break-words whitespace-normal">
+                  {p.mensaje}
+                </td>
+                <td class="px-4 py-2 border-b text-center font-mono">
+                  {p.codigo_acceso}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FAMILIAS -->
+    <section
+      class="bg-white shadow-xl rounded-xl md:rounded-2xl px-2 py-6 md:p-6 mb-10 overflow-x-auto"
+    >
+      <h2 class="text-2xl md:text-3xl font-serif mb-6 text-center text-gray-800">
+        Familias
+      </h2>
+      <table
+        class="min-w-[900px] md:min-w-full border-collapse border border-gray-200"
+      >
+        <thead class="bg-gray-800 text-[#E2C290] uppercase text-sm md:text-base">
+          <tr>
+            <th class="px-4 py-3 border-b">Familia</th>
+            <th class="px-4 py-3 border-b">Correo</th>
+            <th class="px-4 py-3 border-b text-center">Integrantes</th>
+            <th class="px-4 py-3 border-b text-center">Mensaje</th>
+            <th class="px-4 py-3 border-b text-center">Código</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            familias?.map((f) => (
+              <tr class="hover:bg-gray-50 transition-shadow shadow-sm">
+                <td class="px-4 py-2 border-b">{f.nombre_familia}</td>
+                <td class="px-4 py-2 border-b">{f.correo}</td>
+                <td class="px-4 py-2 border-b text-center">
+                  {f.num_integrantes}
+                </td>
+                <td class="px-4 py-2 border-b text-center min-w-[250px] break-words whitespace-normal">
+                  {f.mensaje}
+                </td>
+                <td class="px-4 py-2 border-b text-center font-mono">
+                  {f.codigo_acceso}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+  </main>
+</Layout>
