@@ -1,21 +1,37 @@
-// src/pages/api/confirmar.ts
 import type { APIRoute } from "astro";
-
-export const prerender = false;
 import { supabase } from "../../lib/supabaseClient";
 import { generarCodigo } from "../../lib/utils";
+
+export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
     const { tipo, ...data } = body;
 
-    console.log("Datos recibidos en /api/confirmar:", body);
-
-    // 👇 Aquí siempre generamos el código
     const codigo = generarCodigo();
 
     if (tipo === "persona") {
+      // Verificar si el correo ya existe en personas o familias
+      const { data: existingPerson } = await supabase
+        .from("personas")
+        .select("id")
+        .eq("correo", data.correo)
+        .limit(1);
+
+      const { data: existingFamily } = await supabase
+        .from("familias")
+        .select("id")
+        .eq("correo", data.correo)
+        .limit(1);
+
+      if ((existingPerson && existingPerson.length > 0) || (existingFamily && existingFamily.length > 0)) {
+        return new Response(JSON.stringify({ error: "Este correo ya está registrado" }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
       const { error } = await supabase.from("personas").insert([
         {
           nombre: data.nombre,
@@ -30,6 +46,26 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     if (tipo === "familia") {
+      // Verificar si el correo ya existe en personas o familias
+      const { data: existingPerson } = await supabase
+        .from("personas")
+        .select("id")
+        .eq("correo", data.correo)
+        .limit(1);
+
+      const { data: existingFamily } = await supabase
+        .from("familias")
+        .select("id")
+        .eq("correo", data.correo)
+        .limit(1);
+
+      if ((existingPerson && existingPerson.length > 0) || (existingFamily && existingFamily.length > 0)) {
+        return new Response(JSON.stringify({ error: "Este correo ya está registrado" }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+
       const { error } = await supabase.from("familias").insert([
         {
           nombre_familia: data.nombreFamilia,
@@ -41,6 +77,7 @@ export const POST: APIRoute = async ({ request }) => {
       ]);
       if (error) throw error;
     }
+
 
     return new Response(JSON.stringify({ success: true, codigo }), {
       status: 200,
