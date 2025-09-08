@@ -93,7 +93,7 @@ export default function ConfirmarAsistencia() {
 
 
   return (
-    <section className="relative flex flex-col items-center justify-center py-12 px-4">
+    <section className="relative flex flex-col items-center justify-center py-12">
       <h2 className="text-4xl md:text-5xl font-[Dancing_Script] text-shadow-lg text-shadow-[#E2C290] text-center mb-4">
         Confirmar Asistencia
       </h2>

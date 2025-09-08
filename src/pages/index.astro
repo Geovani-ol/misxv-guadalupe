@@ -1,7 +1,7 @@
 ---	
 import Layout from "../layouts/Layout.astro";
 import CuentaRegresiva from "../components/CuentaRegresiva.astro";
-import ConfirmarAsistencia from "../components/ConfirmarAsistencia";
+import Asistencia from "../components/Asistencia.jsx";
 
 const lugares = [
   {
@@ -299,7 +299,7 @@ const lugares = [
 		</script>
 
 		<!-- Sección confirmar asistencia -->
-		<ConfirmarAsistencia client:load />
+		<Asistencia client:load />
 
 
 		<footer class="text-gray-800 py-4 mt-12">
@@ -311,10 +311,12 @@ const lugares = [
 						Jose Israel / David Geovani
 					</span> 
 				</div>
+				<!--
 				<div class="flex gap-4 mt-2 md:mt-0">
 						<a href="mailto:contacto@tudominio.com" class="hover:underline">Contacto</a>
 						<a href="https://www.tuportafolio.com" target="_blank" class="hover:underline">Portafolio</a>
-				</div>
+				</div> 
+				 -->
 			</div>
 		</footer>
 
