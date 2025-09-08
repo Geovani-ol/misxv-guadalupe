@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
+    "@astrojs/vercel": "^8.2.7",
     "@react-email/components": "^0.5.2",
     "@react-spring/web": "^10.0.1",
     "@supabase/supabase-js": "^2.57.0",
