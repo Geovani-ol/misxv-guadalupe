@@ -2,8 +2,8 @@
 
 Sitio web interactivo para celebrar los **XV años de Guadalupe**. Incluye una página de invitación con detalles del evento, un sistema de confirmación de asistencia y un panel de administración para gestionar las respuestas de los invitados.
 
-![Vista previa del sitio](public/Screenshot_20260325_221350.png)  
-![Panel de administración](public/Screenshot_20260325_221222.png)
+![Vista previa del sitio](public/Screenshot_20260325_221422.png)  
+![Panel de administración](public/Screenshot_20260325_221350.png)
 
 ## ✨ Características
 
