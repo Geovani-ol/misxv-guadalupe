@@ -1,47 +1,28 @@
-# Astro Starter Kit: Basics
+# 🎉 Invitación Digital – XV Años de Guadalupe
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Sitio web interactivo para celebrar los **XV años de Guadalupe**. Incluye una página de invitación con detalles del evento, un sistema de confirmación de asistencia y un panel de administración para gestionar las respuestas de los invitados.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Vista previa del sitio](public/Screenshot_20260325_221350.png)  
+![Panel de administración](public/Screenshot_20260325_221222.png)
 
-## 🚀 Project Structure
+## ✨ Características
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Invitación digital** elegante y responsiva.
+- **Detalles del evento**: fecha, hora, ubicación de ceremonia y recepción.
+- **Agradecimientos** a padres y padrinos.
+- **Galería de fotos** (“Recuerdos Dorados”).
+- **Sistema de confirmación** con tres modalidades:
+  - Persona sola
+  - Persona acompañada
+  - Familia (varios integrantes)
+- **Panel de administración** protegido por código:
+  - Visualización de todas las confirmaciones agrupadas por tipo.
+  - Conteo total de asistentes.
+- **Despliegue en Vercel** para fácil acceso y rendimiento.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## 🛠️ Tecnologías utilizadas
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# misxv-guadalupe
+- **Frontend:** HTML5, CSS3, JavaScript, Astro, TailwindCSS
+- **Base de datos:** Supabase
+- **Despliegue:** [Vercel](https://vercel.com)
+- **Control de versiones:** Git + GitHub
